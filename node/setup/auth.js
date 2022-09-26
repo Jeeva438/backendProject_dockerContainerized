@@ -293,7 +293,7 @@ router.post('/verifyotp',
 
                 return res.send({
                     success: false,
-                    message: "unsuccessful"
+                    message: "OTP Timeout. Try again."
                 })
 
             }

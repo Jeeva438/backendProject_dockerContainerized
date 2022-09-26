@@ -71,7 +71,8 @@ if (cluster.isMaster) {
     })
 
     dotenv.config();
-    app.set('port', process.env.PORT || 5002)
+    // app.set('port', process.env.PORT || 5002)
+    app.set('port', 5002)
 
     require('./app')(app);
 

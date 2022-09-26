@@ -11,8 +11,8 @@ module.exports = async function (passport) {
     passport.use(new FacebookStrategy({
         clientID: clientId,
         clientSecret: clientSecreT,
-        callbackURL: "https://fitconnectl.herokuapp.com/facebook/callback",
-        // callbackURL: "http://localhost:5000/facebook/callback",
+        // callbackURL: "https://fitconnectl.herokuapp.com/facebook/callback",
+        callbackURL: "http://13.235.50.5:5002/facebook/callback",
         profileFields: ['email', 'name', 'displayName', 'photos']
     }, async (accessToken, refreshToken, profile, done) => {
         console.log("profile: ", profile);

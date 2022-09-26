@@ -12,8 +12,8 @@ module.exports = async function (passport) {
     passport.use(new GoogleStrategy({
         clientID: clientId,
         clientSecret: clientSecreT,
-        // callbackURL: "http://localhost:5000/google/callback"
-        callbackURL: "https://fitconnectl.herokuapp.com/google/callback"
+        // callbackURL: "https://fitconnectl.herokuapp.com/google/callback"
+        callbackURL: "http://13.235.50.5:5002/google/callback"
     }, async (accessToken, refreshToken, profile, done) => {
 
         console.log("profile", profile);
