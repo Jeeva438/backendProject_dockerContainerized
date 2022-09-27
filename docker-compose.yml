@@ -1,0 +1,43 @@
+version: "3.3"
+
+services:
+  node:
+    build: ./node
+    ports:
+      - 5002:5002
+    depends_on:
+      - mssql
+      - redis
+    networks:
+      - fitConnect-network
+
+  mssql:
+    image: "mcr.microsoft.com/mssql/server:2019-latest"
+    container_name: mssql
+    ports:
+      - 1433:1433
+    environment:
+      SA_PASSWORD: "Welcome@123"
+      ACCEPT_EULA: "Y"
+    volumes:
+      - mssql-data:/var/opt/mssql
+    networks:
+      - fitConnect-network
+
+  redis:
+    image: redis:latest
+    ports:
+      - 6379:6379
+    container_name: redis
+    volumes:
+      - redis-db:/data/db
+    networks:
+      - fitConnect-network
+
+networks:
+  fitConnect-network:
+    driver: bridge
+
+volumes:
+  mssql-data:
+  redis-db:
